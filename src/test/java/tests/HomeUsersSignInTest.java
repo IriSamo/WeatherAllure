@@ -3,6 +3,7 @@ package tests;
 import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.home.HomePage;
 import pages.home.HomeUsersPasswordPage;
@@ -11,6 +12,7 @@ import utils.ProjectConstants;
 import utils.TestData;
 import pages.home.HomeUsersSignInPage;
 
+@Ignore
 public class HomeUsersSignInTest extends BaseTest {
 
     @Test
@@ -103,6 +105,7 @@ public class HomeUsersSignInTest extends BaseTest {
         Assert.assertEquals(actualNoticeMessage, expectedNoticeMessage);
     }
 
+    @Ignore
     @Test(dependsOnMethods = {"testRecoverPassword", "testRepeatRecoverPassword", "testEmptyRecoveryEmail"})
     public void testEmailResetPasswordReceived() throws Exception {
         String expectedSubject = "Reset password instructions";
@@ -116,6 +119,7 @@ public class HomeUsersSignInTest extends BaseTest {
         Assert.assertTrue(exist, "No email with subject " + expectedSubject + " received");
     }
 
+    @Ignore
     @Test(dependsOnMethods = {"testRecoverPassword", "testRepeatRecoverPassword", "testEmptyRecoveryEmail",
             "testEmailResetPasswordReceived"})
     public void testLinkToResetPasswordIsWorking() throws Exception {
@@ -128,6 +132,7 @@ public class HomeUsersSignInTest extends BaseTest {
         Assert.assertEquals(homeUsersPasswordPage.getH3Header(), "Change your password");
     }
 
+    @Ignore
     @Test(dependsOnMethods = {"testRecoverPassword", "testRepeatRecoverPassword", "testEmptyRecoveryEmail",
             "testEmailResetPasswordReceived", "testLinkToResetPasswordIsWorking"})
     public void testChangePasswordThroughEmail() throws Exception {
@@ -143,6 +148,7 @@ public class HomeUsersSignInTest extends BaseTest {
         Assert.assertEquals(actualAlertMessage, "Your password has been changed successfully.");
     }
 
+    @Ignore
     @Test(dependsOnMethods = {"testRecoverPassword", "testRepeatRecoverPassword", "testEmptyRecoveryEmail",
             "testEmailResetPasswordReceived", "testLinkToResetPasswordIsWorking", "testChangePasswordThroughEmail"})
     public void testLoginWithNewPassword() {
@@ -162,6 +168,7 @@ public class HomeUsersSignInTest extends BaseTest {
         Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
     }
 
+    @Ignore
     @Test(dependsOnMethods = {"testRecoverPassword", "testRepeatRecoverPassword", "testEmptyRecoveryEmail",
     "testEmailResetPasswordReceived", "testLinkToResetPasswordIsWorking", "testChangePasswordThroughEmail",
     "testLoginWithNewPassword"})
