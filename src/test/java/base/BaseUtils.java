@@ -1,6 +1,7 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -26,6 +27,7 @@ public final class BaseUtils {
         initProperties();
 
         chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
         String options = properties.getProperty(PROP_CHROME_OPTIONS);
         if (options != null) {
             for (String argument : options.split(";")) {
@@ -73,6 +75,10 @@ public final class BaseUtils {
 
     static void captureScreenFile(WebDriver driver, String methodName, String className) {
         TakesScreenshot ts = (TakesScreenshot) driver;
+        Allure.getLifecycle().addAttachment(
+                "screenshot", "image/png", "png"
+                , ts.getScreenshotAs(OutputType.BYTES)
+        );
         File file = ts.getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(file, new File(String.format("screenshots/%s-%s.png", className, methodName)));

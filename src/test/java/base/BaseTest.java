@@ -1,5 +1,8 @@
 package base;
 
+import io.qameta.allure.Allure;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
@@ -46,6 +49,13 @@ public abstract class BaseTest {
     protected void afterMethod(Method method, ITestResult result) {
         if (!result.isSuccess() && BaseUtils.isServerRun()) {
             BaseUtils.captureScreenFile(driver, method.getName(), this.getClass().getName());
+        }
+
+        if (!result.isSuccess() && !BaseUtils.isServerRun()) {
+            Allure.getLifecycle().addAttachment(
+                    "screenshot", "image/png", "png"
+                    , ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)
+            );
         }
 
         Reporter.log(ReportUtils.getTestStatistics(method, result), true);
