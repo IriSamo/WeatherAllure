@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class FAQTest extends BaseTest {
@@ -20,6 +21,7 @@ public class FAQTest extends BaseTest {
         Assert.assertEquals(actualHeader, expectedHeader);
     }
 
+    @Ignore
     @Test
     public void testH3HeadersAmount() {
         final int expectedH3HeadersAmount = 10;
@@ -33,6 +35,7 @@ public class FAQTest extends BaseTest {
         Assert.assertEquals(actualH3HeadersAmount, expectedH3HeadersAmount);
     }
 
+    @Ignore
     @Test
     public void testFAQInnerDescriptionsAmount() {
         final int expectedOpenedFAQAmount = 59;

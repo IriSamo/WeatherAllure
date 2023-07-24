@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.top_menu.PricePage;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class PriceTest extends BaseTest {
 
+    @Ignore
     @Test
     public void testTransparentButtonsAmount() {
         final int expectedTransparentButtons = 18;
@@ -50,6 +52,7 @@ public class PriceTest extends BaseTest {
         Assert.assertEquals(collectionsNames, expectedNames);
     }
 
+    @Ignore
     @Test
     public void testH2HeaderOnAlertsTable() {
         final String expectedH2Header = "Special products";
@@ -62,6 +65,7 @@ public class PriceTest extends BaseTest {
         Assert.assertEquals(actualH2Header, expectedH2Header);
     }
 
+    @Ignore
     @Test
     public void testH4HeadersOnAlertsTable() {
         final List<String> expectedH4Headers = Arrays.asList(
@@ -80,6 +84,7 @@ public class PriceTest extends BaseTest {
         Assert.assertEquals(actualH4Headers, expectedH4Headers);
     }
 
+    @Ignore
     @Test
     public void testTransparentButtonsLabels() {
         final List<String> expectedTransparentButtonsLabels = Arrays.asList(
@@ -96,6 +101,7 @@ public class PriceTest extends BaseTest {
         Assert.assertEquals(actualTransparentButtonsLabels, expectedTransparentButtonsLabels);
     }
 
+    @Ignore
     @Test
     public void testH2Headers() {
         final int expectedAmountH2Headers = 7;

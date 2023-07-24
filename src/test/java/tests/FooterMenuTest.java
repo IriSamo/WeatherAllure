@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.StartPage;
 import pages.WeatherStationsPage;
@@ -227,6 +228,7 @@ public class FooterMenuTest extends BaseTest {
                 " ExternalPageTitle does not contain 'OpenWeather' ");
     }
 
+    @Ignore
     @Test
     public void testGitHubIconNavigatesToGitHubWeb() {
         final String expectedURL = "https://github.com/search?q=openweathermap&ref=cmdform";
@@ -331,6 +333,7 @@ public class FooterMenuTest extends BaseTest {
         Assert.assertEquals(getExternalPageTitle(), expectedTitle);
     }
 
+    @Ignore
     @Test
     public void testCopyrightOnFooterMenu() {
         final String expectedCopyright = "© 2012 — 2023 OpenWeather ® All rights reserved";

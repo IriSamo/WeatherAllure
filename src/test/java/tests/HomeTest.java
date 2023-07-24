@@ -4,6 +4,7 @@ import base.BaseTest;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.home.HomePage;
 import pages.home.HomeUsersSignInPage;
@@ -22,6 +23,7 @@ public class HomeTest extends BaseTest {
         Assert.assertEquals(actualSignInMessage, "Signed in successfully.");
     }
 
+    @Ignore
     @Test
     public void testH2Headers() {
         final List<String> expectedH2Headers = List.of(

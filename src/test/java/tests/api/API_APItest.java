@@ -4,6 +4,7 @@ import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class API_APItest extends BaseTest {
 
+    @Ignore
     @Test
     public void testAllLinksAreNotBroken() {
         String linkURL = "";

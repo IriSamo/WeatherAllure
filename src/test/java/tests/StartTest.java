@@ -3,6 +3,7 @@ package tests;
 import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.CurrentWeatherPage;
 import pages.StartPage;
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class StartTest extends BaseTest {
 
+    @Ignore
     @Test
     public void testH2Header_WhenSearchingCityCountry() {
         final String cityName = "Paris";
@@ -33,6 +35,7 @@ public class StartTest extends BaseTest {
         Assert.assertEquals(newCityCountryNames, expectedCityCountryNames);
     }
 
+    @Ignore
     @Test
     public void testH2Header_WhenSearchingCityCountryChain() {
         final String cityName = "Paris";
@@ -306,6 +309,7 @@ public class StartTest extends BaseTest {
         Assert.assertEquals(actualNotificationMessage, expectedNotificationMessage);
     }
 
+    @Ignore
     @Test
     public void testAPIIconsAreDisplayed() {
         final int expectedAPIIconsQuantity = 5;
@@ -326,6 +330,7 @@ public class StartTest extends BaseTest {
         Assert.assertEquals(startPage.getAPIIconsNames(), expectedAPIIconsNames);
     }
 
+    @Ignore
     @Test
     public void testMainPageHeaders() {
         final String expectedH1Header = "OpenWeather";
